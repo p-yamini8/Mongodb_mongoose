@@ -1,7 +1,5 @@
 const path = require('path');
-
 require('dotenv').config();
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -21,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  User.findById('6905c3d633dfe55b7831b13c')
+  User.findById('69085d82e2f50558642f4306')
     .then(user => {
       req.user = user;
       next();
@@ -45,8 +43,8 @@ mongoose
     User.findOne().then(user => {
       if (!user) {
         const user = new User({
-          name: 'Max',
-          email: 'max@test.com',
+          name: 'yamini',
+          email: 'yamini@gmail.com',
           cart: {
             items: []
           }
@@ -54,7 +52,9 @@ mongoose
         user.save();
       }
     });
-    app.listen(3000);
+    app.listen(3000,()=>{
+      console.log('running')
+    });
   })
   .catch(err => {
     console.log(err);
