@@ -52,8 +52,9 @@ mongoose
         user.save();
       }
     });
-    app.listen(3000,()=>{
-      console.log('running')
+    const port=process.env.PORT
+    app.listen(`${port}`,()=>{
+      console.log(`running ${port}`)
     });
   })
   .catch(err => {
